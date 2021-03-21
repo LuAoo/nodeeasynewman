@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>纽曼商城</title>
+  <link rel='stylesheet' href='/stylesheets/base.css' />
+  <link rel='stylesheet' href='/stylesheets/jquery.mobile-1.4.5.css' />
+  <link rel='stylesheet' href='/stylesheets/pro_center.css' />
+  <link rel='stylesheet' href='/stylesheets/style copy.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header class="header">
+    <h1>纽曼电器</h1>
+  </header>
+  <article class="content">
+    <!-- banner轮播区域 -->
+    <section class="index_banner">
+      <div class="bd">
+        <ul>
+          <li>
+            <a href="#">
+              <img src="images/banner.png" alt="banner">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- 功能选择区域 -->
+    <nav class="index_nav">
+      <ul>
+        <% for (const key in sqldata.navlist){%>
+          <li>
+            <a href="#">
+              <figure>
+                <img src="<%=sqldata.navlist[key].img%>">
+                <figcaption>
+                  <%=sqldata.navlist[key].name%>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+          <%}%>
+      </ul>
+    </nav>
+    <!-- 热销产品区域 -->
+    <section class="index_product">
+      <header class="index_title">
+        <h1>热销产品 /
+          <span>推荐产品</span>
+        </h1>
+      </header>
+      <ul class="pic_list">
+        <% for( let index=0; index < sqldata.product.length; index++ ) { %>
+          <li>
+            <figure class="pic">
+              <!-- 产品图片链接 -->
+              <a href="/product/<%= Number(index) + 1 %>">
+                <img src="<%=sqldata.product[index].img%>">
+              </a>
+              <!-- 产品名称 -->
+              <figcaption class="name"><%=sqldata.product[index].name%></figcaption>
+            </figure>
+          </li>
+          <% } %>
+      </ul>
+    </section>
+    <!-- 公司新闻区域 -->
+    <section class="index_news">
+      <header class="index_title">
+        <h1>公司新闻</h1>
+        <a href="news.html" class="more">more</a>
+      </header>
+      <div class="news_list">
+        <ul>
+          <% for( let index = 0; index < sqldata.news.length; index++ ) { %>
+            <li>
+              <div class="pic">
+                <div class="time">
+                  <time>31</time>
+                  <time>2020.12</time>
+                </div>
+              </div>
+              <section class="text">
+                <!-- 新闻标题 -->
+                <h2><a href=""><%=sqldata.news[index].tltle%> </a></h2>
+                <!-- 新闻内容 -->
+                <p><%=sqldata.news[index].test%></p>
+              </section>
+            </li>
+          <%}%>
+        </ul>
+      </div>
+    </section>
+    <!-- 公司简介区域 -->
+    <section class="about_us">
+      <header class="index_title">
+        <h1>公司简介</h1>
+      </header>
+      <section class="text">
+        <!-- 公司图片 -->
+        <a href="#">
+          <img src="/images/pic_9.jpg">
+        </a>
+        <!-- 公司简介 -->
+        <p><%=sqldata.about[0].text%> </p>
+      </section>
+    </section>
+    <!-- 留言区域 -->
+    <section class="message_me">
+      <header class="index_title">
+        <h1>给我留言</h1>
+      </header>
+      <form method="" action="" class="msg">
+        <label for="">
+          <input type="text" placeholder="请输入您的姓名" data-role="none">
+        </label>
+        <label for="">
+          <input type="text" placeholder="请输入您的邮箱/手机/QQ" data-role="none">
+        </label>
+        <label for="">
+          <textarea name="" id="" placeholder="请输入您的留言" data-role="none"></textarea>
+        </label>
+        <label for="">
+          <input type="submit" value="提交留言" data-role="none">
+        </label>
+        <label for="">
+          <input type="reset" value="重置信息" data-role="none">
+        </label>
+      </form>
+    </section>
+  </article>
+</body>
+
+</html>

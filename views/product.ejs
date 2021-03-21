@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>产品详情</title>
+  <link rel='stylesheet' href='/stylesheets/base.css' />
+  <link rel='stylesheet' href='/stylesheets/jquery.mobile-1.4.5.css' />
+  <link rel='stylesheet' href='/stylesheets/pro_center.css' />
+  <link rel='stylesheet' href='/stylesheets/style copy.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.mobile-1.4.5.js"></script>
+  <script type="text/javascript" src="/javascripts/pro_banner.js"></script>
+  <script type="text/javascript">
+    $(document).bind("pageinit", function () {
+      $(".pro_banner .bd li img").load(function () {
+        var imgH = $(".pro_banner .bd li img").innerHeight();
+        $(".pro_banner").css({ "height": imgH + "px" });
+      })
+      /*取消ajax加载数据*/
+      $("a").attr("data-ajax", "false");
+    })
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1>产品详情<a href="javascript:history.back()" class="return"><img src="/images/arrow_l.png"></a></h1>
+  </header>
+  <article class="content">
+    <section class="pro_main">
+      <header>
+        <!-- 产品主图 -->
+        <img src="<%= sqldata.alldata[0].img %>">
+        <!-- 产品标题 -->
+        <h3><%= sqldata.alldata[0].name %></h3>
+      </header>
+      <!-- 产品详情数据 -->
+      <section>
+        <p>型号：<%= sqldata.alldata[0].model %></p>
+        <p>颜色：<%= sqldata.alldata[0].color %></p>
+        <p>重量：<%= sqldata.alldata[0].weight %></p>
+        <p>面板材质：<%= sqldata.alldata[0].featrues %></p>
+        <p>产品尺寸：<%= sqldata.alldata[0].size %></p>
+        <p>产品特性：<%= sqldata.alldata[0].chara %></p>
+      </section>
+    </section>
+    <section class="your_Like">
+      <header>
+        <h1>猜你喜欢</h1>
+      </header>
+      <div class="list">
+        <ul>
+          <% for(var i in sqlimg){%>
+            <li><a href="/product/<%= Number(i) + 1 %>"><img src="<%=sqlimg[i].img %>"></a></li>
+          <% } %>      
+        </ul>
+      </div>
+    </section>
+  </article>
+</body>
+</html>

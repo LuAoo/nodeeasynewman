@@ -1,0 +1,11 @@
+.pro_banner{border-bottom: 1px solid #ececec;padding-bottom: 10px;}
+.pro_banner{width: 100%;clear: both;overflow: hidden;position: relative;margin-top: -1em;}
+.pro_banner .bd li{position: absolute;}
+.pro_banner .bd li img{display: block;margin: 0 auto;max-width: 100%;}
+.pro_main{padding: 0 1em 10px;font-size: 14px;line-height: 24px;font-family: '微软雅黑';}
+.pro_main h3{text-align: center;color: #01a1ff;font-weight: normal;font-size: 16px;padding: 10px 0;}
+
+.your_Like h1{color: #01a1ff;font-size: 18px;font-weight: normal;font-family: '微软雅黑';border-top: 5px solid #ececec;border-bottom: 1px solid #ececec;padding: 0 10px;}
+.your_Like .list{padding: 15px 5px 0 5px;}
+.your_Like .list li{padding: 0 5px;}
+.your_Like .list li img{max-width: 100%;display: block;margin: 0 auto;}
